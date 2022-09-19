@@ -9,15 +9,13 @@
 </head>
 <body>
     <h1>Convas to Image Convertion</h1>
-   
+   <!-- Button -->
         <button type="button" id="Display">Display</button>
         <button type="button" id="Download" >Download</button>
-    
-    <div class="header"><p>header</p></div>
-    <canvas id="myCanvas" width="100%" height="100%"></canvas>
-    <img src="" id="imgConverter" alt="Image">
-    <div class="footer">footer</div>
-
+    <!-- Canvas image -->
+    <canvas id="myCanvas" width="400" height="250"></canvas>
+    <img src="" id="imgConverter">
+<!-- javaScript -->
     <script>
  const btnDisplay=document.querySelector('#Display');
  const btnDownload=document.querySelector('#Download');
@@ -25,14 +23,34 @@
  const myCanvas=document.querySelector('#myCanvas');
  const ctx=myCanvas.getContext('2d');
 
+//  javaScript Styling
  ctx.font="16px Times New Roman";
- ctx.fillStyle='red';
- ctx.fillText('Mehrunnisa',10,50);
+ ctx.fillStyle='blue';
+ ctx.fillText('Header',150,50);
+ ctx.fillText('Footer',150,230);
+ ctx.fillRect(70,90,200,100);
+ ctx.fillStyle='white';
+ ctx.fillText('Mehrunnisa',130,150);
+ btnDisplay.addEventListener('click',function(){
+    const dataURL=myCanvas.toDataURL('image/jpeg');
+    imgConverter.src=dataURL;
+ });
+
+btnDownload.addEventListener('click',function(){
+   
+    const image=myCanvas.toDataURL();
+    const link = document.createElement('a')
+  link.href=image;
+  link.download(image.png);
+ });
+
+
+
+
+
+
 
 
     </script>
-   
-
-
 </body>
 </html>
