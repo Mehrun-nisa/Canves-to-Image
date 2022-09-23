@@ -36,13 +36,13 @@
     imgConverter.src=dataURL;
  });
 
-btnDownload.addEventListener('click',function(){
+ btnDownload.addEventListener('click',function(){
    
-    const image=myCanvas.toDataURL();
-    const link = document.createElement('a')
-  link.href=image;
-  link.download(image.png);
- });
+   var link = document.createElement('a');
+ link.download = 'myCanvas.png';
+ link.href = document.getElementById('myCanvas').toDataURL()
+ link.click();
+});
 
 
 
